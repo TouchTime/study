@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	  <div>输入要搜索的课程名称</div>
+	  <div id="searchbox">
+	    <input type="text" id="keyword" />
+	  </div>
+	  <button id="searchbtn">搜索</button>
+	  <script>
+	    document.getElementById('keyword').oninput = function(){
+	      var keyword = this.value;//获取输入框已经获取的值
+	      //典型的ajax编程模板
+	      //1.创建XMLHttpRequest对象
+	      var xhr = new XMLHttpRequest();
+	      //2.open操作初始化请求信息
+	      xhr.open('GET','keyword/hit?keyword='+encodeURIComponent(keyword),ture);
+	    }
+	  </script>
+	</body>
+</html>

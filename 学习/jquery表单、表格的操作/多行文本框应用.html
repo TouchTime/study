@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		  span{background:#ccc;color:#fff;margin-right: 5px;}
+		  #comment{width:400px;}
+		</style>
+	</head>
+	<body>
+	  <form>
+	    <div class="msg">
+	      <div class="msg_caption">
+	        <span class="bigger">放大</span>
+	        <span class="smaller">缩小</span>
+	      </div>
+	      <div>
+	        <textarea id="comment" row="8"cols="20">香奈儿专属调香师贾克.波巨赋予了CHANCE不断运行的星群香调结构，每一刻都在变化。充满生气、交织碰撞的细致花香调，混合了性感与辛辣的元素。各种奇妙的香氛碰撞组合，幻化出不可思议的和谐香调，洋溢着幸福盈满的温馨感受。　香奈儿邂逅淡香水　香木橼的闪亮清新为星群香调结构揭开了序幕，如同涌动的波浪，在白麝香的层层包围中缓缓绽放。充满春天气息的绿色水风信子，使香氛霎那间充满了生气，让浓郁的茉莉，如同布满露珠的花瓣，变得淡雅柔和。由琥珀、广藿香与香根草所组成的木质香调，赋予香氛跃动的盎然活力。全新的柚木香调，给香氛注入了难以抗拒的能量气势，展露生气蓬勃的面貌。捉摸不定的花香变成了充满了惊喜的缤纷花香味调，散发着清新、绿意盎然的邂逅清新淡香奈儿香水，延续CHANCE 的圆瓶经典，搭配雾面瓶盖。
+</textarea>
+	      </div>
+	    </div>
+	  </form>
+	  <script src="http://code.jquery.com/jquery-latest.js"></script>
+	  <script>
+	    $(function(){
+	      var comment=$('#comment');
+	      $('.bigger').click(function(){                   //放大事件
+	        if(!comment.is(":animated")){
+	          if(comment.height()<500){
+//	          comment.height(comment.height()+50);
+//添加动画效果
+             comment.animate({height:"+=50"},400);
+  	        }
+	        }
+  	    });
+  	    $('.smaller').click(function(){                   //缩小事件
+  	      if(!comment.is(":animated")){
+  	        if(comment.height()>50){    
+//	          comment.height(comment.height()-50);
+              comment.animate({height:"-=50"},400);
+  	        }
+  	      }   
+	      });
+	    });
+	  </script>
+	</body>
+</html>

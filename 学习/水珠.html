@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+.droplet {
+width: 1rem;
+height: 1rem;
+border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+background-color: #07C;
+transform: rotate(-45deg);
+opacity: 0;
+-webkit-animation: loading-1 1s ease .5s infinite;
+}
+ @-webkit-keyframes loading-1{
+        0%{opacity: 0;transform: rotate(-45deg);}
+        5%{opacity: 1;transform: rotate(-45deg);}
+        100%{opacity: 0;transform:translateY(3rem) rotate(-45deg);}
+      }
+</style>
+</head>
+<body>
+<div class="droplet"></div> 
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态画圆</title>
+		<style>
+		  body{padding:50px 100px;}
+		  canvas{background:lightgreen;display:block;}
+		</style>
+	</head>
+	<body>
+	  <input type="text" placeholder="请输入您需要的百分比"/>
+	  <input type="button" value="点击绘制"/>
+	  <canvas id="canvas" width="500" height="500"></canvas>
+	  <script type="text/javascript">
+	    var canvas=document.getElementById('canvas');
+	    var input=document.getElementsByTagName('input')[0];
+	    var btn=document.getElementsByTagName('input')[1];
+	    var radius=100;//圆的半径是100
+	    var context=canvas.getContext('2d');//context.arc()---绘制圆形
+	    //1、圆心的坐标（X轴、Y轴），radius(圆的半径)，start,end,true=逆时针，false=顺时针
+	    
+	    context.beginPath();
+	    context.fillStyle='gold';
+	    context.fillRect(0,0,10,10);
+	    context.closePath();
+	    function draw(end){
+	      context.clearRect(150,150,2*radius,2*radius);
+	      context.beginPath();
+	      context.moveTo(canvas.width/2,canvas.height/2);  //圆心
+	      context.arc(canvas.width/2,canvas.height/2,radius,end,0,true);
+//	      context.arc(canvas.width/2,canvas.height/2,radius,0,end,false);
+	      context.closePath();
+	      context.fillStyle='green';
+	      context.fill();
+	      
+	    }
+//	    draw(2*Math.PI)
+//      把百分比转化成Math.PI
+      function change(value){
+        var num=value.substring(0,value.length-1);
+        return Math.PI*2*num/100;
+      }
+      //验证用户输入信息
+      function inputErr(value){
+        //var Patt1=RegExp(/^(100|[1-9]?\d(\.\d\d?)?)%$/);
+        var Patt1 = /^(100|[1-9]?\d(\.\d\d?)?)%$/;
+        var result=Patt1.test(value);
+        return result;
+      }
+      btn.onclick=function(){
+        if(!inputErr(input.value)){
+          alert('请输入百分比');
+          return;
+        }
+        //利用定时器实现动态绘制
+        var numberEnd=0;
+        var timer=setInterval(function(){
+          numberEnd++;
+          draw(numberEnd/100*2*Math.PI);
+          if(numberEnd>parseInt(input.value)){
+            draw(change(input.value));
+            clearInterval(timer);
+          }
+        },100);
+      }
+	  </script>
+	</body>
+</html>

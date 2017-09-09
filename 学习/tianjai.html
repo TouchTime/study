@@ -1,0 +1,277 @@
+@extends('layouts.app')
+<style>
+    a>div,a>div:visited,a>div:hover,a>div:active{
+        text-decoration: none;
+        color: #000;
+    }
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .gallery-thumbs .swiper-slide img{
+        background-size: 15%;
+
+    }
+    .swiper-button-next, .swiper-button-prev{
+        top:33%;
+    }
+    .gallery-top {
+        height: 78%;
+        width: 100%;
+    }
+    .gallery-thumbs {
+        height: 20%;
+        box-sizing: border-box;
+        bottom:16vh;
+    }
+    .gallery-thumbs .swiper-slide {
+        width: 14%;
+        height: 76%;
+        opacity: 0.4;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border: 2px solid #ebebeb;
+        border-radius: 1rem;
+    }
+    .gallery-thumbs .swiper-slide-active {
+        opacity: 1;
+    }
+    .gallery-top .main-slide img{
+        width: 30%;
+        height: 48vh;
+        margin: 8vh 0 0 0;
+    }
+    .gallery-thumbs img{
+        width: 15%!important;
+        height: 11vh;
+    }
+    .swiper-wrapper ,.swiper-slide{
+        position: relative;
+        width: 74%;
+        left: 2vw;
+        height: 100%;
+    }
+    .flower{
+        position:absolute;
+        top: -1vw;
+        right: -8vw;
+        -webkit-animation:fadeInDown 1s .2s ease both;
+        -moz-animation:fadeInDown 1s .2s ease both;
+
+
+    }
+    .intro{
+        position: absolute;
+        top: 16vh;
+        right: 17vw;
+        -webkit-animation:title_intro 1s .2s ease both;
+        -moz-animation:title_intro 1s .2s ease both;
+        animation-delay:2s;
+
+    }
+    .main_wrap img{
+        width:60%;
+    }
+    .intro1{
+        position: absolute;
+        top: 27vh;
+        right: 31vw;
+        width:5%;
+        -webkit-animation:rotateIn 1s .2s ease both;
+        -moz-animation:rotateIn 1s .2s ease both;
+        animation-delay:3s;
+
+    }
+    .tree{
+        position: absolute;
+        top: 36vh;
+        right: 10vw;
+        width: 36%;
+        -webkit-animation:fadeInDown 1s .2s ease both;
+        -moz-animation:fadeInDown 1s .2s ease both;
+    }
+    @-webkit-keyframes title_intro{
+        0%{opacity:0;
+            -webkit-transform:scale(.3)}
+        50%{opacity:1;
+            -webkit-transform:scale(1.05)}
+        70%{-webkit-transform:scale(.9)}
+        100%{-webkit-transform:scale(1)}
+    }
+    @-moz-keyframes title_intro{
+        0%{opacity:0;
+            -moz-transform:scale(.3)}
+        50%{opacity:1;
+            -moz-transform:scale(1.05)}
+        70%{-moz-transform:scale(.9)}
+        100%{-moz-transform:scale(1)}
+    }
+
+
+    @-webkit-keyframes rotateIn{
+        0%{-webkit-transform-origin:center center;
+            -webkit-transform:rotate(-200deg);
+            opacity:0}
+        100%{-webkit-transform-origin:center center;
+            -webkit-transform:rotate(0);
+            opacity:1}
+    }
+    @-moz-keyframes rotateIn{
+        0%{-moz-transform-origin:center center;
+            -moz-transform:rotate(-200deg);
+            opacity:0}
+        100%{-moz-transform-origin:center center;
+            -moz-transform:rotate(0);
+            opacity:1}
+    }
+    @-webkit-keyframes fadeInDown{
+        0%{opacity:0;
+            -webkit-transform:translateY(-20px)}
+        100%{opacity:1;
+            -webkit-transform:translateY(0)}
+    }
+    @-moz-keyframes fadeInDown{
+        0%{opacity:0;
+            -moz-transform:translateY(-20px)}
+        100%{opacity:1;
+            -moz-transform:translateY(0)}
+    }
+
+    @-webkit-keyframes fadeInRightBig{
+        0%{opacity:0;
+            -webkit-transform:translateX(2000px)}
+        100%{opacity:1;
+            -webkit-transform:translateX(0)}
+    }
+    @-moz-keyframes fadeInRightBig{
+        0%{opacity:0;
+            -moz-transform:translateX(2000px)}
+        100%{opacity:1;
+            -moz-transform:translateX(0)}
+    }
+    @keyframes fade-in{
+        0%{ opacity: 0;}
+        100%{opacity:1;}
+    }
+    @-webkit-keyframes fade-in{
+        0%{ opacity: 0;}
+        100%{opacity:1;}
+    }
+    @-o-keyframes fade-in{
+        0%{ opacity: 0;}
+        100%{opacity:1;}
+    }
+    @-moz-keyframes fade-in{
+        0%{ opacity: 0;}
+        100%{opacity:1;}
+    }
+    .main-slide  img{
+        width: 46%;
+        height:48%;
+        -webkit-border-radius:1rem;
+        -moz-border-radius:1rem;
+        border-radius:1rem;
+        border: 2px solid #ebebeb;
+        padding:3px;
+    }
+    .main-slide {
+        height: 78%;
+        position: relative;
+        width: 76%;
+        left: 3vw;
+    }
+    .main-slide .choose{
+        padding-top:8rem;
+        margin-bottom: 1.5rem;
+    }
+    .gallery-thumbs p{
+        position:absolute;
+        bottom:-5vh;
+
+    }
+
+</style>
+
+@section('content')
+    <h4 style="margin-left: 4vw;margin-top: 2vh;">主要成效模拟数据</h4>
+
+      <div class="main-slide">
+          <a href="{{ url('/record/achieve',['id' => $achieves[0]['id']]) }}" >
+             <div class=" slide choose ">
+                    <img src="{{ $achieves[0]['cover']}}" >
+             </div>
+             <div class="sub-title">
+                 {{ $achieves[0]['title']}}
+             </div>
+          </a>
+      </div>
+
+        <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+                @foreach ($achieves as $v)
+                <div class="swiper-slide " data-text="{{ url('/record/achieve',['id' => $v->id]) }}" style="background-image:url({{$v->cover}})"><p>{{$v->title}}</p></div>
+                @endforeach
+            </div>
+            <div class="swiper-button-next swiper-button-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+        </div>
+
+    <div class="main_wrap">
+        <div class="flower">
+            <img src="http://jlzpublicbucket.oss-cn-hangzhou.aliyuncs.com/water/activity/flower1.png">
+        </div>
+        <div class="intro"><img src="http://jlzpublicbucket.oss-cn-hangzhou.aliyuncs.com/water/activity/main.png"></div>
+        <div class="intro1"><img src="http://jlzpublicbucket.oss-cn-hangzhou.aliyuncs.com/water/activity/red.png"></div>
+        <div class="tree"><img src="http://jlzpublicbucket.oss-cn-hangzhou.aliyuncs.com/water/activity/picture.png"></div>
+    </div>
+
+
+
+    <!-- Swiper JS -->
+    <script src="//cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+
+
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            slidesPerView: 'auto',
+//      loop:true,
+            spaceBetween:20,
+            slideToClickedSlide: true,
+            touchRatio: 1,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+        });
+
+    </script>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(".gallery-thumbs .swiper-slide").click(function(){
+            var reg = new RegExp('"',"g");
+            var avatar = $(this).css("backgroundImage");
+            var words = $(this).find('p').text();
+            var url= $(this).data('text');
+            avatar = avatar.split("(")[1].split(")")[0];
+            avatar = avatar.replace(reg, "");
+            $(".sub-title").html(words);
+            $("div.choose img").attr("src",avatar);
+            $(".main-slide a").attr("href",url);
+            $(this).css("opacity",'1').siblings().css("opacity",'0.4');
+        })
+    </script>
+@endsection

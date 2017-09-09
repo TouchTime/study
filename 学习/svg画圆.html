@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="background:#000;">
+	   <div id="scle1" style="width:12rem; height:12rem">35%</div>
+	   <script src="echarts.js"></script>
+	  <script>
+	   var canvas1 = echarts.init(document.getElementById("scle1"));
+                circleProgress(60,canvas1);
+	    function circleProgress(tips,myCharts){
+           function loading() {
+               return [{
+                   value: tips,
+                   itemStyle: {
+                       normal: {
+                           color: '#fff',
+                           shadowBlur: 10,
+                           shadowColor: '#fff'
+                       }
+                   }
+               }, {
+                   value: 100 - tips
+               }];
+           }
+
+           option = {
+               title: {
+                   text: (tips * 1) + '%',
+                   x: 'center',
+                   y: 'center',
+                   textStyle: {
+                       color: '#fff',
+                       fontSize: 20
+                   }
+               },
+               series: [{
+                   name: 'loading',
+                   type: 'pie',
+                   radius: ['30%', '34%'],
+                   hoverAnimation: false,
+                   label: {
+                       normal: {
+                           show: false
+                       }
+                   },
+                   itemStyle: {
+                       normal: {
+                           color: 'rgba(255,255,255,.2)',
+                           shadowBlur: 10,
+                           shadowColor: '#fff'
+                       }
+                   },
+                   data: loading()
+               }]
+           };
+
+           setInterval(function() {
+
+               if (tips == tips) {
+                   // tips = 0;
+               } else {
+                   ++tips;
+               }
+               myCharts.setOption({
+                   title: {
+                       text: tips + '%'
+                   },
+                   series: [{
+                       name: 'loading',
+                       data: loading()
+                   }]
+               })
+
+           }, 100);
+           myCharts.setOption(option);
+       }
+	  </script>
+	</body>
+</html>

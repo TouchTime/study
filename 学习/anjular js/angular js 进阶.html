@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>angular js 进阶</title>
+	</head>
+	<body ng-app="app">
+	  <div ng-controller="MyCtrl">
+	    <input type="text" ng-model="msg">
+	    <h1>{{msg}}</h1>
+	  </div>
+	  
+	  <script src="//cdn.bootcss.com/angular.js/1.5.11/angular.min.js"></script>
+	 <script>
+	   angular.module('app',[])
+    .controller('MyCtrl',function($scope){
+      $scope.msg="angular";
+    });
+	 </script> 
+	</body>
+</html>

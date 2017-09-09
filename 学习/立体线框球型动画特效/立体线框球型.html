@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>立体线框球型特效</title>
+		<style>
+		   body{background:#000;}
+		  .ball-box{width:300px;height:300px;margin:-150px 0 0 -150px;position:absolute;left:50%;top:50%;perspective: 3000px;}
+		.ball{height:100%;-webkit-transform-style:preserve-3d;transform:rotateX(-30deg)rotateZ(-30deg);-webkit-animation:rotate3d 30s infinite linear;}
+		  .ball>div{border:1px solid #fff;border-radius: 100%;position:absolute;width:100%;height:100%;}
+		  .ball .line1{transform:rotateY(0);}
+		  .ball .line2{transform:rotateY(36deg);}
+		  .ball .line3{transform:rotateY(72deg);}
+		  .ball .line4{transform:rotateY(108deg);}
+		  .ball .line5{transform:rotateY(144deg);}
+		  @-webkit-keyframes rotate3d{0%{transform:rotateZ(-30deg) rotateY(0);}100%{transform:rotateZ(-30deg)rotateY(360deg);}}
+      .ball:after{content: ''; width: 1px;height: 500px;background-color: #ff0;display: block;position: absolute;left: 0;top: 0;transform:translateX(150px) translateY(-100px);}
+		</style>
+	</head>
+	<body>
+	  <div class="ball-box">
+	    <div class="ball">
+	      <div class="line1"></div>
+	      <div class="line2"></div>
+	      <div class="line3"></div>
+	      <div class="line4"></div>
+        <div class="line5"></div>
+	    </div>
+	  </div>
+	</body>
+</html>

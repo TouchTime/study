@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		  .canvas{background:blue;}
+		</style>
+		
+	</head>
+	<body>
+	  <!--<canvas class="canvas" width="200px" height="200px"></canvas>-->
+	  <script>
+	  var canvas_width=200px , canvas_height=200px;
+	  
+	    window.onload=function(){        // 是页面全部加载完成，甚至包括图片 
+	      createCanvas();
+	    }
+	    function createCanvas(){
+	      document.body.innerHTML="<canvas id=\"mycanvas\" width=\""+canvas_width+"\" height=\""+canvas_height+"\"></canvas>"          //'\'是转义字符
+	    }
+	  </script>
+	</body>
+</html>

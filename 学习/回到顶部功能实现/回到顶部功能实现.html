@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>回到顶部功能实现</title>
+		<style>
+		  *{margin:0;padding:0;}
+		  .box{width:1000px;margin:0 auto;}
+		  .btn{width:40px;height:80px;position:fixed;bottom:30px;left:50%;background:red;margin-left: 500px;}
+		  .btn:hover{background:green;}
+		</style>
+	</head>
+	<body>
+	  <div class="box">
+	    <img src="jkxy.png">	 
+	    <!--<a href="#" class="btn" id="btn" title="回到顶部"></a>  -->       //#可以回到本页面
+	    <a style="display:none" href="javascript:;" class="btn" id="btn" title="回到顶部"></a>      //javascript可以阻止回到本页的顶部；
+	  </div>
+	  <script >
+	  //页面加载
+	    window.onload=function(){
+	      var topbtn=document.getElementById("btn");
+	      var timer=null;
+	      var pagelookheight=document.documentElement.clientHeight;
+	      window.onscroll=function(){
+	      var backtop=document.body.scrollTop;
+	      if(backtop>=pagelookheight){
+	        topbtn.style.display="block";
+	      }else{
+	        topbtn.style.display="none";
+	      }
+	      
+	      }
+	      topbtn.onclick=function(){
+//	        alert("hello");                    //监听事件
+        
+        timer=setInterval(function(){
+          var backtop=document.body.scrollTop;
+          var speedtop=backtop/5;
+        document.body.scrollTop=backtop-speedtop;
+        if(backtop==0){
+          clearInterval(timer);
+        }
+        },30);
+	      }
+	    };
+	  </script>
+	</body>
+</html>
